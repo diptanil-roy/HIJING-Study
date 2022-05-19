@@ -1,0 +1,8 @@
+#ignore fzd files and root files
+*.fzd
+*.root
+
+**gen**
+**log**
+**out**
+
