@@ -1,38 +1,26 @@
-<job  name="Hijing_Study" maxFilesPerProcess="40" fileListSyntax="paths" simulateSubmission ="false" >
+<job  name="Hijing_Study" nProcesses="10" simulateSubmission ="true" >
 
-	<stdout URL="file:/gpfs01/star/pwg/mkelsey/output/D0JetTree_Mar24/log/$JOBID.log" />
-	<stderr URL="file:/gpfs01/star/pwg/mkelsey/output/D0JetTree_Mar24/log/$JOBID.err" />
-	<input URL="filelist:/gpfs01/star/pwg/droy1/D0JetTreeMakerCode/D0PicoDsts_FileList.list" nFiles="all" />
+	<stdout URL="file:/gpfs01/star/pwg/droy1/hijing/log/$JOBID.log" />
+	<stderr URL="file:/gpfs01/star/pwg/droy1/hijing/log/$JOBID.err" />
 	<command>
 
 	    
-	    mkdir /tmp/mkelsey_${JOBID}
-		cd /tmp/mkelsey_${JOBID}
+	    mkdir /tmp/droy1_${JOBID}
+		cd /tmp/droy1_${JOBID}
 
-		cp -r /gpfs01/star/pwg/droy1/D0JetTreeMakerCode/D0JetTreeMaker.C .
-		cp -r /gpfs01/star/pwg/droy1/D0JetTreeMakerCode/StRoot .
-		cp -r /gpfs01/star/pwg/droy1/D0JetTreeMakerCode/.sl73_gcc485 .
-		cp -r /star/u/droy1/Y2019/STAR/FastJet .
+		starver DEV
 
-		ln -s /star/u/droy1/Y2019/STAR/FastJet/fastjet-install/include/fastjet
-		ln -s /star/u/droy1/Y2019/STAR/FastJet/fastjet-install/include/siscone
+		cp /gpfs01/star/pwg/droy1/hijing/starsim.C .
 
-		starver dev
-		setenv FASTJET FastJet/fastjet-install
-
-	    root -b -q -l 'D0JetTreeMaker.C( "'"$FILELIST"'", "'"${JOBID}.root"'", 1000000000,  "'"${JOBID}"'" )'
+		root4star -b -q -l 'starsim.C("'"${JOBID}.root"'")'
 	    
-	    cp JetTree_${JOBID}.root /gpfs01/star/pwg/mkelsey/output/D0JetTree_Mar24/jettree/.
-	    cp ${JOBID}.root /gpfs01/star/pwg/mkelsey/output/D0JetTree_Mar24/out/.
+	    cp *.root /gpfs01/star/pwg/droy1/hijing/out/.
 
-	    unlink fastjet
-	    unlink siscone
-
-	    rm -rf /tmp/mkelsey_${JOBID}
+	    rm -rf /tmp/droy1_${JOBID}
 
 	</command>
 
 	<Generator> 
- 		<Location>/gpfs01/star/pwg/mkelsey/output/D0JetTree_Mar24/gen/</Location> 
+ 		<Location>/gpfs01/star/pwg/droy1/hijing/gen/</Location> 
  	</Generator> 
 </job>

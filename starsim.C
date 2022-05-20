@@ -60,7 +60,7 @@ void Hijing()
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
-void starsim( int nevents=10,int rngSeed=12345678, const char* tag="y2018" )
+void starsim( const char* filename = "hijing.starsim.root", int nevents=1, int rngSeed=12345678, const char* tag="y2018" )
 { 
 
   gROOT->ProcessLine(".L bfc.C");
@@ -88,7 +88,7 @@ void starsim( int nevents=10,int rngSeed=12345678, const char* tag="y2018" )
   //
   _primary = new StarPrimaryMaker();
   {
-    _primary -> SetFileName( "hijing.starsim.root");
+    _primary -> SetFileName( filename );
     chain -> AddBefore( "geant", _primary );
   }
 
@@ -124,7 +124,7 @@ void starsim( int nevents=10,int rngSeed=12345678, const char* tag="y2018" )
   //
   //geometry("y2012");
   command("gkine -4 0");
-  command("gfile o hijing.starsim.root");
+  // command("gfile o hijing.starsim.root");
   
   //
   // Trigger on nevents
