@@ -2,6 +2,7 @@
 *.fzd
 *.root
 *.txt
+*.session.xml
 
 **gen**
 **log**
