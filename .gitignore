@@ -1,6 +1,7 @@
 #ignore fzd files and root files
 *.fzd
 *.root
+*.txt
 
 **gen**
 **log**
