@@ -3,6 +3,7 @@
 *.root
 *.txt
 *.session.xml
+*.metafile
 
 **gen**
 **log**
