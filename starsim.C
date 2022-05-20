@@ -60,7 +60,7 @@ void Hijing()
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
-void starsim( const char* filename = "hijing.starsim.root", int nevents=1, int rngSeed=12345678, const char* tag="y2018" )
+void starsim( const char* filename = "hijing.starsim.root", int nevents=1, int rngSeed=0, const char* tag="y2018" )
 { 
 
   gROOT->ProcessLine(".L bfc.C");

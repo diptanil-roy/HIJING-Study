@@ -9,3 +9,5 @@
 .sl73_gcc485
 
 temp_gccflags.c
+
+random.C
