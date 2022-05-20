@@ -12,7 +12,7 @@
 
 		cp /gpfs01/star/pwg/droy1/hijing/starsim.C .
 
-		root4star -b -q -l 'starsim.C("'"${JOBID}.root"'")'
+		root4star -b -q -l 'starsim.C("'"${JOBID}.root"'", 1000, ${JOBID})'
 	    
 	    cp *.root /gpfs01/star/pwg/droy1/hijing/out/.
 
