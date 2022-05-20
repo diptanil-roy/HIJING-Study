@@ -37,27 +37,6 @@ void trig( int n=0 )
   for ( int i=0; i<n+1; i++ ) {
     chain->Clear();
     chain->Make();
-    // _primary -> event() -> Print();
-    /*
-    StarGenEvent *ev = _primary -> event();
-
-    // ev->Print();
-
-    int nparticles = ev->GetNumberOfParticles();
-
-    cout << "Particles = " << nparticles << endl;
-
-    for (int j = 1; j < nparticles; j++ ){
-      StarGenParticle *part = ev->GetParticle(j);
-
-      // cout << typeid(ev[j]).name() << endl;
-      // (StarGenParticle *)ev[j]->Print();
-      part->Print();
-      // if (part->GetStatus() < 1) continue;
-      // TLorentzVector *p = (TLorentzVector *)part->momentum();
-      // cout << j << "\t" << p->Px() << "\t" << p->M() << endl;
-    }
-   */
   }
 }
 // ----------------------------------------------------------------------------
@@ -81,7 +60,7 @@ void Hijing()
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
-void starsim( int nevents=10,int rngSeed=1234, const char* tag="y2018" )
+void starsim( int nevents=10,int rngSeed=12345678, const char* tag="y2018" )
 { 
 
   gROOT->ProcessLine(".L bfc.C");
