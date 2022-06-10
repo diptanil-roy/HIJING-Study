@@ -106,7 +106,7 @@ void starsim( const char* filename = "hijing.starsim.root", int nevents=1, int r
   // Configure HIJING simulation
   HiParnt_t &hiparnt = hijing->hiparnt();
   {
-    hiparnt.ihpr2(4) = 0;     // Jet quenching (1=yes/0=no)       0
+    hiparnt.ihpr2(4) = 1;     // Jet quenching (1=yes/0=no)       0
     hiparnt.ihpr2(3) = 1;     // Hard scattering (1=yes/0=no)
     hiparnt.hipr1(8) = 5.0;   // 
     //hiparnt.hipr1(10) = -2.5;  //    pT jet (negative indicates lower limit)
