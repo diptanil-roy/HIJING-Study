@@ -23,7 +23,7 @@ public :
    Int_t           fCurrent; //!current Tree number in a TChain
 
 // Fixed size dimensions of array or collections stored in the TTree if any.
-   static constexpr Int_t kMaxmParticles = 10000;
+   // static constexpr Int_t 10000 = 10000;
 
    // Declaration of leaf types
  //StarGenEvent    *primaryEvent;
@@ -32,25 +32,25 @@ public :
    TString         mName;
    TString         mTitle;
    Int_t           mParticles_;
-   UInt_t          mParticles_fUniqueID[kMaxmParticles];   //[mParticles_]
-   UInt_t          mParticles_fBits[kMaxmParticles];   //[mParticles_]
-   Int_t           mParticles_mStatus[kMaxmParticles];   //[mParticles_]
-   Int_t           mParticles_mId[kMaxmParticles];   //[mParticles_]
-   Int_t           mParticles_mMother[kMaxmParticles][2];   //[mParticles_]
-   Int_t           mParticles_mDaughter[kMaxmParticles][2];   //[mParticles_]
-   Float_t         mParticles_mPx[kMaxmParticles];   //[mParticles_]
-   Float_t         mParticles_mPy[kMaxmParticles];   //[mParticles_]
-   Float_t         mParticles_mPz[kMaxmParticles];   //[mParticles_]
-   Float_t         mParticles_mEnergy[kMaxmParticles];   //[mParticles_]
-   Float_t         mParticles_mMass[kMaxmParticles];   //[mParticles_]
-   Float_t         mParticles_mVx[kMaxmParticles];   //[mParticles_]
-   Float_t         mParticles_mVy[kMaxmParticles];   //[mParticles_]
-   Float_t         mParticles_mVz[kMaxmParticles];   //[mParticles_]
-   Float_t         mParticles_mTof[kMaxmParticles];   //[mParticles_]
-   Int_t           mParticles_mIndex[kMaxmParticles];   //[mParticles_]
-   Int_t           mParticles_mStack[kMaxmParticles];   //[mParticles_]
-   Int_t           mParticles_mPrimaryKey[kMaxmParticles];   //[mParticles_]
-   Int_t           mParticles_mGeneratorId[kMaxmParticles];   //[mParticles_]
+   UInt_t          mParticles_fUniqueID[10000];   //[mParticles_]
+   UInt_t          mParticles_fBits[10000];   //[mParticles_]
+   Int_t           mParticles_mStatus[10000];   //[mParticles_]
+   Int_t           mParticles_mId[10000];   //[mParticles_]
+   Int_t           mParticles_mMother[10000][2];   //[mParticles_]
+   Int_t           mParticles_mDaughter[10000][2];   //[mParticles_]
+   Float_t         mParticles_mPx[10000];   //[mParticles_]
+   Float_t         mParticles_mPy[10000];   //[mParticles_]
+   Float_t         mParticles_mPz[10000];   //[mParticles_]
+   Float_t         mParticles_mEnergy[10000];   //[mParticles_]
+   Float_t         mParticles_mMass[10000];   //[mParticles_]
+   Float_t         mParticles_mVx[10000];   //[mParticles_]
+   Float_t         mParticles_mVy[10000];   //[mParticles_]
+   Float_t         mParticles_mVz[10000];   //[mParticles_]
+   Float_t         mParticles_mTof[10000];   //[mParticles_]
+   Int_t           mParticles_mIndex[10000];   //[mParticles_]
+   Int_t           mParticles_mStack[10000];   //[mParticles_]
+   Int_t           mParticles_mPrimaryKey[10000];   //[mParticles_]
+   Int_t           mParticles_mGeneratorId[10000];   //[mParticles_]
    Int_t           mGeneratorId;
    Int_t           mProcessId;
    Int_t           mOffset;
