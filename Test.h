@@ -193,7 +193,7 @@ Test::Test(TChain *tree) : fChain(0)
 
    // }
    tree = new TChain("genevents");
-   tree->Add("2BBF33694F36A9244C99185872FD830F_*.root");
+   tree->Add("HijingWithoutJetQuenching/*.root");
    Init(tree);
 }
 
