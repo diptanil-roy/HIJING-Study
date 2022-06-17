@@ -56,6 +56,7 @@ void Test::Loop()
 
 
    for (Long64_t jentry=0; jentry<nentries;jentry++) {
+   	if (jentry %10000 == 0) cout << double(jentry)/double(nentries)*100 << "\% events of " << nentries << " completed." << endl;
       Long64_t ientry = LoadTree(jentry);
       if (ientry < 0) break;
       nb = fChain->GetEntry(jentry);   nbytes += nb;
