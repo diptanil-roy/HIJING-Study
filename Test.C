@@ -32,7 +32,7 @@ void Test::Loop()
 //by  b_branchname->GetEntry(ientry); //read only this branch
    if (fChain == 0) return;
 
-   Long64_t nentries = fChain->GetEntriesFast();
+   double nentries = fChain->GetEntries();
 
    Long64_t nbytes = 0, nb = 0;
 
@@ -53,10 +53,10 @@ void Test::Loop()
    t->Branch("PT30", &pt30, "pt30/F");
    t->Branch("PT40", &pt40, "pt40/F");
 
+   cout << nentries << endl;
 
-
-   for (Long64_t jentry=0; jentry<nentries;jentry++) {
-   	if (jentry %10000 == 0) cout << double(jentry)/double(nentries)*100 << "\% events of " << nentries << " completed." << endl;
+   for (int jentry=0; jentry<nentries;jentry++) {
+   	if (jentry % 100 == 0) cout << double(jentry)/nentries*100 << "\% events of " << nentries << " completed." << endl;
       Long64_t ientry = LoadTree(jentry);
       if (ientry < 0) break;
       nb = fChain->GetEntry(jentry);   nbytes += nb;
