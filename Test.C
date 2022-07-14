@@ -4,6 +4,8 @@
 #include <TStyle.h>
 #include <TCanvas.h>
 #include <TVector3.h>
+#include <algorithm>
+#include <vector>
 
 void Test::Loop()
 {
@@ -43,7 +45,7 @@ void Test::Loop()
    float pt40 = 0;
 
 
-   TFile *f = new TFile("TestOutput.root", "RECREATE");
+   TFile *f = new TFile("Quenching.root", "RECREATE");
    TTree *t = new TTree("Correlator", "Correlator");
    t->SetDirectory(f);
 
@@ -55,18 +57,35 @@ void Test::Loop()
 
    cout << nentries << endl;
 
+   vector<int> allowedparticles;
+
+   allowedparticles.push_back(211);
+   allowedparticles.push_back(321);
+   allowedparticles.push_back(2212);
+   allowedparticles.push_back(-211);
+   allowedparticles.push_back(-321);
+   allowedparticles.push_back(-2212);
+   allowedparticles.push_back(111);
+   allowedparticles.push_back(221);
+   // allowedparticles.push_back(130); //??
+   allowedparticles.push_back(2112);
+   allowedparticles.push_back(-2112);
+
+
+   TDatabasePDG *pdg = new TDatabasePDG();
+
    for (int jentry=0; jentry<nentries;jentry++) {
-   	if (jentry % 100 == 0) cout << double(jentry)/nentries*100 << "\% events of " << nentries << " completed." << endl;
+   	if (jentry % 10000 == 0) cout << double(jentry)/nentries*100 << "\% events of " << nentries << " completed." << endl;
       Long64_t ientry = LoadTree(jentry);
       if (ientry < 0) break;
       nb = fChain->GetEntry(jentry);   nbytes += nb;
       // if (Cut(ientry) < 0) continue;
 
       ntracks = 0;
-	  pt10 = 0;
-	  pt20 = 0;
-	  pt30 = 0;
-	  pt40 = 0;
+	   pt10 = 0;
+	   pt20 = 0;
+	   pt30 = 0;
+	   pt40 = 0;
 
       for (int part = 0; part < mParticles_; part++){
       	if (mParticles_mStatus[part] <= 0) continue;
@@ -78,6 +97,23 @@ void Test::Loop()
 
       	if (pt < 0.2 || pt > 100) continue;
       	if (abs(eta) > 1) continue;
+
+         int idd = mParticles_mId[part];
+
+         if(abs(idd)>3000) continue;
+
+
+
+         // if (find(allowedparticles.begin(), allowedparticles.end(), idd) != allowedparticles.end()) continue;
+         if (abs(idd) != 211 && abs(idd) != 321 && abs(idd) != 2212 && abs(idd) != 2112 && abs(idd) != 111 && abs(idd) != 221 ) continue;
+
+         // cout << idd << endl;
+
+         TParticlePDG *particle = (TParticlePDG *)pdg->GetParticle(idd);
+
+         double charge = particle->Charge();
+
+         if (charge == 0) continue;
 
       	// cout << pt << endl;
 

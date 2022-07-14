@@ -13,6 +13,8 @@
 #include <TFile.h>
 #include <TTree.h>
 #include <TChain.h>
+#include <TDatabasePDG.h>
+#include <TParticlePDG.h>
 
 // Header file for the classes stored in the TTree if any.
 #include "TObject.h"
@@ -193,8 +195,8 @@ Test::Test(TChain *tree) : fChain(0)
 
    // }
    tree = new TChain("genevents");
-   tree->Add("HijingWithoutJetQuenching/*.root");
-   // tree->Add("2*.root");
+   // tree->Add("HijingWithoutJetQuenching/*.root");
+   tree->Add("/Volumes/WorkDrive/Hijing/Quenching/*.root");
    Init(tree);
 }
 
