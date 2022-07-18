@@ -11,6 +11,7 @@
 #include <TChain.h>
 #include <TDatabasePDG.h>
 #include <TParticlePDG.h>
+#include <TProfile.h>
 // Header file for the classes stored in the TTree if any.
 #include "TObject.h"
 
@@ -77,6 +78,9 @@ vector<TH1D *> Method(TString filename = "NoQuenching.root"){
 	int nevents = t->GetEntries();
 
 	cout << nevents << endl;
+
+
+	TProfile *ntracksvspt = new TProfile("NTracks vs Pt", )
 
 	double avpT = 0;
 
