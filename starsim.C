@@ -106,11 +106,11 @@ void starsim( const char* filename = "hijing.starsim.root", int nevents=10, int 
   // Configure HIJING simulation
   HiParnt_t &hiparnt = hijing->hiparnt();
   {
-    hiparnt.ihpr2(4) = 1;     // Jet quenching (1=yes/0=no)       0
+    hiparnt.ihpr2(4) = 0;     // Jet quenching (1=yes/0=no)       0
     hiparnt.ihpr2(3) = 1;     // Hard scattering (1=yes/0=no)
-    hiparnt.hipr1(8) = 5.0;   // 
+    hiparnt.hipr1(8) = 2.0;   // 
     hiparnt.hipr1(10) = -2.5;  //    pT jet (negative indicates lower limit)
-    hiparnt.ihpr2(8)  = 10;   // Max number of jets / nucleon
+    hiparnt.ihpr2(8)  = 0;   // Max number of jets / nucleon
     hiparnt.ihpr2(11) = 1;    // Set baryon production
     hiparnt.ihpr2(12) = 1;    // Turn on/off decay of particles [1=recommended]
     hiparnt.ihpr2(18) = 0;    // 1=B quark production.  0=C quark production.
