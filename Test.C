@@ -101,15 +101,12 @@ void Test::Loop()
       	double pt = p.Perp();
       	double eta = p.Eta();
 
-
-      	if (pt < 0.2 || pt > 5) continue;
-      	if (abs(eta) > 2.5) continue;
-
          int idd = mParticles_mId[part];
 
          if(abs(idd)>3000) continue;
 
-
+         if (pt < 0.2 || pt > 30.) continue;
+         if (abs(eta) > 1.) continue;
 
          // if (find(allowedparticles.begin(), allowedparticles.end(), idd) != allowedparticles.end()) continue;
          if (abs(idd) != 211 && abs(idd) != 321 && abs(idd) != 2212 && abs(idd) != 2112 && abs(idd) != 111 && abs(idd) != 221 ) continue;
@@ -125,6 +122,9 @@ void Test::Loop()
       	// cout << pt << endl;
 
       	ntracks++;
+
+         if (pt < 0.2 || pt > 5) continue;
+         
       	pt10+=pow(pt, 1);
       	pt20+=pow(pt, 2);
       	pt30+=pow(pt, 3);
