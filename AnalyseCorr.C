@@ -80,14 +80,14 @@ vector<TH1D *> Method(TString filename = "NoQuenching.root"){
 
 	cout << nevents << endl;
 
-	TProfile *ntracksvspt = new TProfile("NTracks vs Pt", "NTracks vs Pt", 450, -0.5, 449.5, 0, 10);
+	TProfile *ntracksvspt = new TProfile("NTracks vs Pt", "NTracks vs Pt", 450, -0.5, 449.5);
 
 	for (int i = 0; i < nevents; i++){
 		t->GetEntry(i);
 		ntracksvspt->Fill(c.ntracks, c.pt10/c.ntracks);
 	}
 
-	ntracksvspt->Draw();
+	ntracksvspt->Draw("HIST L");
 
 	double avpT = 0;
 

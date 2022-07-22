@@ -9,6 +9,10 @@
 
 void Test::Loop()
 {
+
+   TH1::SetDefaultSumw2();
+   gStyle->SetOptStat(0);
+   gStyle->SetOptTitle(0);
 //   In a ROOT session, you can do:
 //      root> .L Test.C
 //      root> Test t
@@ -71,10 +75,13 @@ void Test::Loop()
    allowedparticles.push_back(2112);
    allowedparticles.push_back(-2112);
 
+   TProfile *ntracksvspt = new TProfile("NTracks vs Pt", "NTracks vs Pt", 1000, -0.5, 999.5);
+
 
    TDatabasePDG *pdg = new TDatabasePDG();
 
-   for (int jentry=0; jentry<nentries;jentry++) {
+   // for (int jentry=0; jentry<nentries;jentry++) {
+   for (int jentry=0; jentry<10000;jentry++) {
    	if (jentry % 10000 == 0) cout << double(jentry)/nentries*100 << "\% events of " << nentries << " completed." << endl;
       Long64_t ientry = LoadTree(jentry);
       if (ientry < 0) break;
@@ -127,10 +134,12 @@ void Test::Loop()
       if (ntracks == 0) continue;
       // cout << ntracks << "\t" << pt10 << endl;
       t->Fill();
-   }
 
+      ntracksvspt->Fill(ntracks, pt10/ntracks);
+   }
    
    f->cd();
    t->Write();
+   ntracksvspt->Write();
    f->Close();
 }
