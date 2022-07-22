@@ -45,7 +45,7 @@ void Test::Loop()
    float pt40 = 0;
 
 
-   TFile *f = new TFile("Quenching.root", "RECREATE");
+   TFile *f = new TFile("NoQuenching.root", "RECREATE");
    TTree *t = new TTree("Correlator", "Correlator");
    t->SetDirectory(f);
 

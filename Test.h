@@ -196,7 +196,7 @@ Test::Test(TChain *tree) : fChain(0)
    // }
    tree = new TChain("genevents");
    // tree->Add("HijingWithoutJetQuenching/*.root");
-   tree->Add("/Volumes/WorkDrive/Hijing/Quenching/*.root");
+   tree->Add("/Volumes/WorkDrive/Hijing/NoQuenching/*.root");
    Init(tree);
 }
 
