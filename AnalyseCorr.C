@@ -61,6 +61,7 @@ double c4(corr c, double avpT){
 }
 
 
+
 vector<TH1D *> Method(TString filename = "NoQuenching.root"){
 
 	TFile *f = new TFile(filename.Data());
@@ -79,18 +80,16 @@ vector<TH1D *> Method(TString filename = "NoQuenching.root"){
 
 	cout << nevents << endl;
 
-
-	TProfile *ntracksvspt = new TProfile("NTracks vs Pt", )
-
-	double avpT = 0;
+	TProfile *ntracksvspt = new TProfile("NTracks vs Pt", "NTracks vs Pt", 450, -0.5, 449.5, 0, 10);
 
 	for (int i = 0; i < nevents; i++){
 		t->GetEntry(i);
-		avpT+=p11(c);
+		ntracksvspt->Fill(c.ntracks, c.pt10/c.ntracks);
 	}
 
-	avpT/=double(nevents);
+	ntracksvspt->Draw();
 
+	double avpT = 0;
 
 	TH1D *hC2 = new TH1D("hC2", "hC2", 400, -20, 20);
 	TH1D *hC3 = new TH1D("hC3", "hC3", 400, -20, 20);
@@ -98,6 +97,7 @@ vector<TH1D *> Method(TString filename = "NoQuenching.root"){
 
 	for (int i = 0; i < nevents; i++){
 		t->GetEntry(i);
+		avpT = ntracksvspt->GetBinContent(ntracksvspt->FindBin(c.ntracks));
 		double C2 = c2(c, avpT);
 		double C3 = c3(c, avpT);
 		double C4 = c4(c, avpT);
@@ -138,6 +138,8 @@ void AnalyseCorr(){
 	vector<TH1D *> v1;
 	v1 = Method("NoQuenching.root");
 
+	/*
+	
 	vector<TH1D *> v2;
 	v2 = Method("Quenching.root");
 
@@ -174,4 +176,6 @@ void AnalyseCorr(){
 		v2[i]->Draw("SAME");
 		legend->Draw("SAME");
 	}
+
+	*/
 }

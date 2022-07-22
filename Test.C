@@ -95,8 +95,8 @@ void Test::Loop()
       	double eta = p.Eta();
 
 
-      	if (pt < 0.2 || pt > 100) continue;
-      	if (abs(eta) > 1) continue;
+      	if (pt < 0.2 || pt > 5) continue;
+      	if (abs(eta) > 2.5) continue;
 
          int idd = mParticles_mId[part];
 
