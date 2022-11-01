@@ -1,4 +1,4 @@
-<job  name="HijingQuenched" nProcesses="1000" simulateSubmission ="false" >
+<job  name="HijingQuenched" nProcesses="100" simulateSubmission ="false" >
 
 	<stdout URL="file:/gpfs01/star/pwg/droy1/hijing/log/$JOBID.log" />
 	<stderr URL="file:/gpfs01/star/pwg/droy1/hijing/log/$JOBID.err" />
@@ -12,7 +12,7 @@
 
 		cp /gpfs01/star/pwg/droy1/hijing/starsim.C .
 
-		root4star -b -q -l 'starsim.C("'"${JOBID}.root"'", 1000, 0, 1)'
+		root4star -b -q -l 'starsim.C("'"${JOBID}.root"'", 200, 0, 1)'
 	    
 	    cp *.root /gpfs01/star/pwg/droy1/hijing/HijingWithQuenching/.
 
