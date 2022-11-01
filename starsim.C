@@ -49,18 +49,19 @@ void Hijing()
   hijing->SetFrame("CMS",200.0);
   hijing->SetBlue("Au");
   hijing->SetYell("Au");  
-  hijing->SetImpact(0.0, 30.0);       // Impact parameter min/max (fm)    0.   30.
+  hijing->SetImpact(0.0, 3.0);       // Impact parameter min/max (fm)    0.   30.
 
 
 
   _primary -> AddGenerator(hijing);
   _primary -> SetCuts( 1.0E-6 , -1., -2.5, +2.5 );
+  _primary -> SetEtaRange(-1., 1.);
   
 }
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
-void starsim( const char* filename = "hijing.starsim.root", int nevents=10, int rngSeed=0, const char* tag="y2018" )
+void starsim( const char* filename = "hijing.starsim.root", int nevents=10, int rngSeed=0, int quenching = 1, const char* tag="y2018" )
 { 
 
   gROOT->ProcessLine(".L bfc.C");
@@ -106,9 +107,9 @@ void starsim( const char* filename = "hijing.starsim.root", int nevents=10, int 
   // Configure HIJING simulation
   HiParnt_t &hiparnt = hijing->hiparnt();
   {
-    hiparnt.ihpr2(4) = 1;     // Jet quenching (1=yes/0=no)       0
+    hiparnt.ihpr2(4) = quenching;     // Jet quenching (1=yes/0=no)       0
     hiparnt.ihpr2(3) = 1;     // Hard scattering (1=yes/0=no)
-    hiparnt.hipr1(8) = 5.0;   // 
+    hiparnt.hipr1(8) = 5.0;   // Minimum PT transfer in hard or semihard scatterings
     hiparnt.hipr1(10) = -2.5;  //    pT jet (negative indicates lower limit)
     hiparnt.ihpr2(8)  = 10;   // Max number of jets / nucleon
     hiparnt.ihpr2(11) = 1;    // Set baryon production
