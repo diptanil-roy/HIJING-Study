@@ -1,4 +1,4 @@
-<job  name="HijingQuenched" nProcesses="100" simulateSubmission ="false" >
+<job  name="HijingQuenched" nProcesses="900" simulateSubmission ="false" >
 
 	<stdout URL="file:/gpfs01/star/pwg/droy1/hijing/log/$JOBID.log" />
 	<stderr URL="file:/gpfs01/star/pwg/droy1/hijing/log/$JOBID.err" />
