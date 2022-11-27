@@ -109,7 +109,7 @@ void starsim( const char* filename = "hijing.starsim.root", int nevents=10, int 
   {
     hiparnt.ihpr2(4) = quenching;     // Jet quenching (1=yes/0=no)       0
     hiparnt.ihpr2(3) = 1;     // Hard scattering (1=yes/0=no)
-    hiparnt.hipr1(8) = 5.0;   // Minimum PT transfer in hard or semihard scatterings
+    hiparnt.hipr1(8) = 15.0;   // Minimum PT transfer in hard or semihard scatterings
     hiparnt.hipr1(10) = -2.5;  //    pT jet (negative indicates lower limit)
     hiparnt.ihpr2(8)  = 10;   // Max number of jets / nucleon
     hiparnt.ihpr2(11) = 1;    // Set baryon production
