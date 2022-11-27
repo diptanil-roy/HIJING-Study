@@ -14,7 +14,7 @@
 
 		root4star -b -q -l 'starsim.C("'"${JOBID}.root"'", 200, 0, 1)'
 	    
-	    cp *.root /gpfs01/star/pwg/droy1/hijing/HijingWithQuenching/.
+	    cp *.root /gpfs01/star/pwg/droy1/hijing/HijingWithQuenching/pthat15/.
 
 	    rm -rf /tmp/droy1_${JOBID}
 
